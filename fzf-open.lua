@@ -25,8 +25,7 @@ vis:command_register("fzf", function(argv, force, win, selection, range)
     local success, msg, status = file:close()
 
     if status == 0 then 
-        -- vis:command(string.format("e '%s'", output))
-        vis:feedkeys(string.format(":e '%s'", output))
+        vis:command(string.format("e '%s'", output))
     elseif status == 1 then
         vis:info(string.format("fzf-open: No match. Command %s exited with return value %i." , command, status))
     elseif status == 2 then
